@@ -1,0 +1,14 @@
+<!-- <div class="row">
+    <button class="btn btn-success" >new Categories</button>
+</div>
+<div class="row">
+    <a href="#" *ngFor="let cat of catlist">
+    
+    <img [src]="cat.img" style="width: 10;" />
+    </a>
+    
+    <hr>
+</div> -->
+<button class="btn btn-fail" (click)="onGet()">post</button>
+<app-categories-item  [catlists]="catlists"  *ngFor="let catlists of catlist"></app-categories-item>
+
