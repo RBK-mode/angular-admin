@@ -1,20 +1,22 @@
-<h1>
-  Welcome To Mode/Admin App
-</h1>
+<app-navbar></app-navbar>
+<img
+  src="https://static.wixstatic.com/media/9fdacc_09b9cbda3aba493abbe683e80393e07b.jpg"
+/>
+<div id="dashboard">
+  <ul style="text-align: center;">
+    <span class="badge badge-pill badge-secondary">
+      {{ users.length }} Customers</span
+    >
+    <span class="badge badge-pill badge-secondary">
+      {{ orders.length }} Orders</span
+    >
+    <span class="badge badge-pill badge-secondary">
+      {{ approvedOrders.length }} Approved Orders</span
+    >
+    <span class="badge badge-pill badge-secondary">
+      {{ rejectedOrders.length }} Rejected Orders</span
+    >
+  </ul>
+</div>
 
-<ul>
-  <li>
-    Follow Trello
-  </li>
-  <li>
-    Know your Tasks
-  </li>
-  <li>
-    Create your components
-  </li>
-  <li>
-    Test your code
-  </li>
-</ul>
-
-<footer>push To Your master, pull request</footer>
+<app-footer></app-footer>
