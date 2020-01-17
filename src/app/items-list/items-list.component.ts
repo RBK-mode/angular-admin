@@ -55,7 +55,7 @@ export class ItemsListComponent implements OnInit {
       "name":form.name,
       "img":form.img,
       "price":form.price,
-      "categoryId": "5e20b48edddffe5208b575f6"
+      "categoryId": form.selectedValue._id
     })
     .subscribe( res => 
       console.log(res , "after Post")
