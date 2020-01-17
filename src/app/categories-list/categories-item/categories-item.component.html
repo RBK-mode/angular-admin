@@ -1,27 +1,11 @@
-<!-- <div class="row">
-    <button class="btn btn-success" >new Categories</button>
-</div>
-<div class="row" [hidden]="!this.catlists">
-    <!-- <a href="#" >
-    <h3>{{cat.name}}</h3>
-    <img [src]="cat.img" style="width: 10;" />
-
-    </a> 
-    {{catlists.name}}
-    
-    <hr>
-</div> -->
-
-
-
-<div class="row">
-    <button class="btn btn-success" >new Categories</button>
-</div>
-<div class="row">
-    <a href="#">
-        {{catlists.name}}
-    <img [src]="catlists.img" style="width: 10;" />
-    </a>
-    
-    <hr>
-</div> 
+<div class="container">
+    <h2>{{catlists.name}}</h2>
+    <!-- <p>Image at the top (card-img-top):</p> -->
+    <div class="card" style="width:400px">
+      <img class="card-img-top" [src]="catlists.img"alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title"> {{catlists.name}}</h4>
+        <p class="card-text">delicios</p>
+        <a href="#" class="btn btn-primary">edit</a>
+      </div>
+    </div>

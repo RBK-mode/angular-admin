@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-categories-list',
@@ -15,7 +16,12 @@ catlist = []
 // ]
 constructor(private http : HttpClient) {}
 
-
+  addItem(form){
+    console.log(form.value);
+    alert("The form was submitted");
+    form.reset();
+    console.log(name, url)
+  }
   ngOnInit() {
     var that = this
     this.onGet(function(res){
@@ -25,10 +31,10 @@ constructor(private http : HttpClient) {}
     })
   }
 
-  onPost(){
+  onPost(name, url){
     this.http.post('http://localhost:8000/api/category/',{
-      "name": "bbb",
-      "img": "urlll"
+      "name": name,
+      "img": url
     }).subscribe( res => 
       console.log(res)
       )
