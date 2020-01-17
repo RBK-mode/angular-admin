@@ -1,12 +1,17 @@
-<p>item works!</p>
 <div class="container">
-    <h2>{{item.name}}</h2>
-    <!-- <p>Image at the top (card-img-top):</p> -->
-    <div class="card" style="width:400px">
-      <img class="card-img-top" [src]="item.img"alt="Card image" style="width:100%">
-      <div class="card-body">
-        <h4 class="card-title"> {{item.name}}</h4>
-        <p class="card-text">delicios</p>
-        <a href="#" class="btn btn-primary">edit</a>
-      </div>
+  <!-- <h2>{{ item.name }}</h2> -->
+  <!-- <p>Image at the top (card-img-top):</p> -->
+  <div class="card">
+    <img
+      class="card-img-top"
+      [src]="item.img"
+      alt="Card image"
+      style="width:100%"
+    />
+    <div class="card-body">
+      <h4 class="card-title">{{ item.name }}</h4>
+      <p class="card-text">delicios</p>
+      <a href="#" class="btn btn-primary">edit</a>
     </div>
+  </div>
+</div>

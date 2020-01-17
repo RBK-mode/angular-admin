@@ -1,36 +1,47 @@
 <div class="container">
-    <h1>Add New items</h1>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm" > <!-- #catForm="ngForm" -->
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name"required ngModel>
-      </div>
-    
-      <div class="form-group">
-        <label for="alterEgo">URL</label>
-        <input type="text" class="form-control" id="img" name="img" ngModel > 
-      </div>
+  <h1>Add New items</h1>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <!-- #catForm="ngForm" -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        required
+        ngModel
+      />
+    </div>
 
-      <div class="form-group">
-        <label for="alterEgo">price</label>
-        <input type="text" class="form-control" id="price" name="price" ngModel > 
-      </div>
-      <div class="form-group">
-        <label for="alterEgo">categories</label>
-        <input type="text" class="form-control" id="categoryId" name="categoryId" ngModel > 
-      </div>
+    <div class="form-group">
+      <label for="alterEgo">URL</label>
+      <input type="text" class="form-control" id="img" name="img" ngModel />
+    </div>
 
-      <button type="submit" class="btn btn-success"  >Submit</button> 
+    <div class="form-group">
+      <label for="alterEgo">price</label>
+      <input type="text" class="form-control" id="price" name="price" ngModel />
+    </div>
+    <div class="form-group">
+      <label for="alterEgo">categories</label>
+      <input
+        type="text"
+        class="form-control"
+        id="categoryId"
+        name="categoryId"
+        ngModel
+      />
+    </div>
 
-    </form>
-</div> 
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
 
-<hr>
+<hr />
 <div class="row">
-    <div class="row">
-        <!-- <button class="btn btn-fail" (click)="onGet()">post</button> -->
-        <app-item *ngFor="let item of items"  [item]="item"></app-item>
-     </div>
-
-</div>    
-
+  <div class="row">
+    <!-- <button class="btn btn-fail" (click)="onGet()">post</button> -->
+    <app-item *ngFor="let item of items" [item]="item"></app-item>
+  </div>
+</div>

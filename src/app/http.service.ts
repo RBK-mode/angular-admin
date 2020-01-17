@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class HttpService {
   constructor(private http: HttpClient) {}
 
-  getAdmin() {
+  getUsers() {
     return this.http.get("http://localhost:8000/api/user", {
       headers: new HttpHeaders({
         auth:

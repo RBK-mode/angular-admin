@@ -15,7 +15,7 @@ export class MainPageComponent implements OnInit {
   constructor(private _http: HttpService) {}
 
   ngOnInit() {
-    this._http.getAdmin().subscribe(user => {
+    this._http.getUsers().subscribe(user => {
       this.users = user;
     });
 
