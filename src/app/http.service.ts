@@ -24,4 +24,8 @@ export class HttpService {
       })
     });
   }
+
+  getCats() {
+    return this.http.get("http://localhost:8000/api/category");
+  }
 }
