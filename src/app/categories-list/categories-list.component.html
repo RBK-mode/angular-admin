@@ -1,14 +1,26 @@
-<!-- <div class="row">
-    <button class="btn btn-success" >new Categories</button>
-</div>
-<div class="row">
-    <a href="#" *ngFor="let cat of catlist">
-    
-    <img [src]="cat.img" style="width: 10;" />
-    </a>
-    
-    <hr>
-</div> -->
-<button class="btn btn-fail" (click)="onGet()">post</button>
-<app-categories-item  [catlists]="catlists"  *ngFor="let catlists of catlist"></app-categories-item>
+<div class="container">
+    <h1>Add New Categories</h1>
+    <form > <!-- #catForm="ngForm" -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+        <hr>
+      <div class="form-group">
+        <label for="alterEgo">URL</label>
+        <input type="text" class="form-control" id="alterEgo">
+      </div>
 
+      <button type="submit" class="btn btn-success" (click)="addItem(); ">Submit</button> <!--catForm.reset() -->
+
+    </form>
+</div>
+
+
+<div class="row">
+    <div class="row">
+        <button class="btn btn-fail" (click)="onGet()">post</button>
+        <app-categories-item *ngFor="let catlists of catlist"  [catlists]="catlists"></app-categories-item>
+     </div>
+
+</div>    
