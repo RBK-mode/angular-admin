@@ -1,0 +1,11 @@
+<div id="catBtns">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      *ngFor="let cat of categories"
+    >
+      {{ cat.name }}
+    </button>
+  </div>
+</div>
