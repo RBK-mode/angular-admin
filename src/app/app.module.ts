@@ -7,12 +7,16 @@ import { CategoriesListComponent } from './categories-list/categories-list.compo
 import { CategoriesItemComponent } from './categories-list/categories-item/categories-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
+import { ItemsListComponent } from './items-list/items-list.component';
+import { ItemComponent } from './items-list/item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesListComponent,
-    CategoriesItemComponent    
+    CategoriesItemComponent,
+    ItemsListComponent,
+    ItemComponent    
   ],
   imports: [
     BrowserModule,
