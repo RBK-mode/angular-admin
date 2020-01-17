@@ -26,12 +26,18 @@ onSubmit(form: NgForm){
     console.log(form.value.url);
     this.onPost(form.value)
     form.reset();
+    // this.ngOnInit()
+    var that = this
+    this.onGet(function(res){
+       that.catlist = res
+      console.log( that.catlist)
+    })
   }
+
   ngOnInit() {
     var that = this
     this.onGet(function(res){
        that.catlist = res
-      // this.test = res
       console.log( that.catlist)
     })
   }
