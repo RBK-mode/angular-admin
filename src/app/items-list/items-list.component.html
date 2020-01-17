@@ -22,10 +22,10 @@
       <div class="form-group">
         <label for="alterEgo">categories</label>
         <select class="form-control" [(ngModel)]="selectedValue">
-            <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.name}}</option>
+            <option *ngFor="let cat of categories; let i = index" value="cat[i].name" >{{cat.name}}</option>
           </select>
       </div>
-
+    
       <button type="submit" class="btn btn-success"  >Submit</button> 
 
     </form>

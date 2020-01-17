@@ -14,7 +14,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 export class ItemsListComponent implements OnInit {
   items = [] // name, img, price, categoryId
   categories =[]
-  selectedValue = null;
+  selectedValue :any ;
   constructor(private http : HttpClient) { }
   
   
@@ -30,15 +30,17 @@ export class ItemsListComponent implements OnInit {
 
 
   onSubmit(form: NgForm){
-    console.log(form.value);
-    console.log(form.value.img);
+    console.log(this.selectedValue)
+    console.log(this.categories)
+    console.log(form.value , 'this is it');
+    // console.log(form.value.img);
     this.onPost(form.value)
     form.reset();
     // this.ngOnInit()
     var that = this
     this.onGet(function(res){
        that.items = res
-      console.log( that.items)
+      console.log(that.items)
     })
   }
 
@@ -56,7 +58,7 @@ export class ItemsListComponent implements OnInit {
       "categoryId": "5e20b48edddffe5208b575f6"
     })
     .subscribe( res => 
-      console.log(res)
+      console.log(res , "after Post")
       )
     }
 
