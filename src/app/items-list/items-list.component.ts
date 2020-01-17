@@ -30,7 +30,7 @@ export class ItemsListComponent implements OnInit {
 
 
   onSubmit(form: NgForm){
-    console.log(form.value.name);
+    console.log(form.value);
     console.log(form.value.img);
     this.onPost(form.value)
     form.reset();
