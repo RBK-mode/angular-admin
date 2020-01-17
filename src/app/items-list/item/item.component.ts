@@ -6,11 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-
+  
   constructor() { 
-    var get = ()=>{
-    return this.item
-  }
+    // var get = ()=>{
+    // return this.item
+  // }
 }
 
 
