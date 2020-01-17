@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-categories-list',
@@ -14,13 +15,17 @@ catlist = []
 //  {name:"shawerma", img:'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'},
 //  {name:"burger", img:'https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg'}
 // ]
-constructor(private http : HttpClient) {}
+checkoutForm;
+constructor(private http : HttpClient) {
+   
+}
 
-  addItem(form){
-    console.log(form.value);
-    alert("The form was submitted");
+
+onSubmit(form: NgForm){
+    console.log(form.value.name);
+    console.log(form.value.url);
+    this.onPost(form.value)
     form.reset();
-    console.log(name, url)
   }
   ngOnInit() {
     var that = this
@@ -31,10 +36,10 @@ constructor(private http : HttpClient) {}
     })
   }
 
-  onPost(name, url){
+  onPost(form){
     this.http.post('http://localhost:8000/api/category/',{
-      "name": name,
-      "img": url
+      "name": form.name,
+      "img": form.url
     }).subscribe( res => 
       console.log(res)
       )

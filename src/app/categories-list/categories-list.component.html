@@ -1,22 +1,22 @@
 <div class="container">
     <h1>Add New Categories</h1>
-    <form > <!-- #catForm="ngForm" -->
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" > <!-- #catForm="ngForm" -->
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required>
+        <input type="text" class="form-control" id="name" name="name"required ngModel><!-- formControlName="name" -->
       </div>
-        <hr>
+    
       <div class="form-group">
         <label for="alterEgo">URL</label>
-        <input type="text" class="form-control" id="alterEgo">
+        <input type="text" class="form-control" id="alterEgo" name="url" ngModel > <!-- formControlName="url" -->
       </div>
 
-      <button type="submit" class="btn btn-success" (click)="addItem(); ">Submit</button> <!--catForm.reset() -->
+      <button type="submit" class="btn btn-success"  >Submit</button> <!-- (click)="addItem(); catForm.reset()" -->
 
     </form>
-</div>
+</div> 
 
-
+<hr>
 <div class="row">
     <div class="row">
         <button class="btn btn-fail" (click)="onGet()">post</button>
