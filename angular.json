@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-admin": {
+    "mode": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-admin",
+            "outputPath": "dist/mode",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-admin:build"
+            "browserTarget": "mode:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-admin:build:production"
+              "browserTarget": "mode:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-admin:build"
+            "browserTarget": "mode:build"
           }
         },
         "test": {
@@ -93,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -115,15 +116,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-admin:serve"
+            "devServerTarget": "mode:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-admin:serve:production"
+              "devServerTarget": "mode:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angular-admin"
+  "defaultProject": "mode"
 }
