@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable  } from '@angular/core';
+import { Component, OnInit, Injectable, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { FormGroup, FormControl } from "@angular/forms";
@@ -19,6 +19,7 @@ export class ItemsListComponent implements OnInit {
   constructor(private http : HttpClient) {
   }
   
+  @Input() element: any;
   
   ngOnInit() {
     var that = this
@@ -67,6 +68,22 @@ export class ItemsListComponent implements OnInit {
         )
     }
 
+    
+    onElementDeleted(event) {
+      console.log(event, 'thisis the eleemt');
+      this.onDelete(event._id)
+      let index = this.items.indexOf(event);
+      this.items.splice(index, 1);
+    }
+    
+    onDelete(id){
+      this.http.delete(`http://localhost:8000/api/item/${id}`)
+      .subscribe( res =>
+        console.log(res)
+        )
+      }
+
+    //*************fitch categories ***********************
     onGetCat(cb){
       this.http.get('http://localhost:8000/api/category/')
       .subscribe( res =>
@@ -75,7 +92,7 @@ export class ItemsListComponent implements OnInit {
     }
 }
 
-
+//****************************************************************** */
 
 @Injectable()
 export class ConfigService {
