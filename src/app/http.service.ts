@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: "root"
 })
 export class HttpService {
+
   constructor(private http: HttpClient) {}
 
   getAdmin() {

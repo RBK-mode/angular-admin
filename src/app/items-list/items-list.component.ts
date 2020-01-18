@@ -1,7 +1,8 @@
-import { Component, OnInit, Injectable  } from '@angular/core';
+import { Component, OnInit, Injectable, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { FormGroup, FormControl } from "@angular/forms";
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -15,8 +16,10 @@ export class ItemsListComponent implements OnInit {
   items = [] // name, img, price, categoryId
   categories =[]
   selectedValue :any ;
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) {
+  }
   
+  @Input() element: any;
   
   ngOnInit() {
     var that = this
@@ -30,28 +33,23 @@ export class ItemsListComponent implements OnInit {
 
 
   onSubmit(form: NgForm){
-    console.log(this.selectedValue)
-    console.log(this.categories)
-    console.log(form.value , 'this is it');
-    // console.log(form.value.img);
+    console.log(this.categories ,"listed categories")
+    console.log(form.value , 'current form value');
     this.onPost(form.value)
+    //add new item to the array to display it
+    this.items.push({
+    "name":form.value.name,
+    "img":form.value.img,
+    "price":form.value.price,
+    "categoryId": form.value.selectedValue._id})
+    //reset the form values
     form.reset();
-    // this.ngOnInit()
-    var that = this
-    this.onGet(function(res){
-       that.items = res
-      console.log(that.items)
-    })
   }
 
-//**************fitch items************
+//**************fitch items************************************
 // name, img, price, categoryId
   onPost(form){
-    // let categories ;
-    // this.onGetCat(function (res){
-    //   categories = res;
-    // })
-    this.http.post('http://localhost:8000/api/item/',{
+      this.http.post('http://localhost:8000/api/item/',{
       "name":form.name,
       "img":form.img,
       "price":form.price,
@@ -70,6 +68,22 @@ export class ItemsListComponent implements OnInit {
         )
     }
 
+    
+    onElementDeleted(event) {
+      console.log(event, 'thisis the eleemt');
+      this.onDelete(event._id)
+      let index = this.items.indexOf(event);
+      this.items.splice(index, 1);
+    }
+    
+    onDelete(id){
+      this.http.delete(`http://localhost:8000/api/item/${id}`)
+      .subscribe( res =>
+        console.log(res)
+        )
+      }
+
+    //*************fitch categories ***********************
     onGetCat(cb){
       this.http.get('http://localhost:8000/api/category/')
       .subscribe( res =>
@@ -78,7 +92,7 @@ export class ItemsListComponent implements OnInit {
     }
 }
 
-
+//****************************************************************** */
 
 @Injectable()
 export class ConfigService {
