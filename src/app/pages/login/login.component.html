@@ -1,41 +1,47 @@
-<h1 style="color: white;">Login</h1>
+<img
+  src="https://images.wallpaperscraft.com/image/restaurant_table_interior_modern_style_39288_1920x1200.jpg"
+  alt=""
+/>
 <div class="alert alert-success" *ngIf="notifyMessage">{{ notifyMessage }}</div>
-<form [formGroup]="loginForm" (ngSubmit)="login()" style="color: white;">
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      aria-describedby="email"
-      placeholder="Enter email"
-      formControlName="email"
-    />
-    <div *ngIf="isInvalidForm('email')" class="alert alert-danger">
-      <div *ngIf="isRequired('email')">
-        Email is required.
-      </div>
-      <div *ngIf="loginForm.controls['email'].errors.pattern">
-        Please provide a valid Email
+<div id="form">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        aria-describedby="email"
+        placeholder="name@example.com"
+        formControlName="email"
+      />
+      <div *ngIf="isInvalidForm('email')" class="alert alert-danger">
+        <div *ngIf="isRequired('email')">
+          Email is required.
+        </div>
+        <div *ngIf="loginForm.controls['email'].errors.pattern">
+          Please provide a valid Email
+        </div>
       </div>
     </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="********"
+        formControlName="password"
+      />
+    </div>
+    <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">
+      login
+    </button>
+  </form>
+  <div *ngIf="errors.length > 0" class="alert alert-danger">
+    <p *ngFor="let error of errors">
+      {{ error.detail }}
+    </p>
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      id="password"
-      placeholder="Password"
-      formControlName="password"
-    />
-  </div>
-  <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">
-    Submit
-  </button>
-</form>
-<div *ngIf="errors.length > 0" class="alert alert-danger">
-  <p *ngFor="let error of errors">
-    {{ error.detail }}
-  </p>
 </div>

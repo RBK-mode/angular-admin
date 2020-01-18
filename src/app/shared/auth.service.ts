@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 
 import { environment } from "../../environments/environment";
 import { map } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root"
@@ -12,10 +13,10 @@ import { map } from "rxjs/operators";
 export class AuthService {
   private user;
   private urlLogin = "http://localhost:8000/api/admin/login";
-  public isAuthed = !!JSON.parse(localStorage.getItem("currentUser"));
+  public isAuthed = !!localStorage.getItem("currentUser");
   @Output() getIsAuthed: EventEmitter<any> = new EventEmitter();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     console.log(this.isAuthed);
     this.getIsAuthed.emit(this.isAuthed);
   }
@@ -34,6 +35,7 @@ export class AuthService {
     localStorage.removeItem("token");
     localStorage.removeItem("currentUser");
     this.isAuthed = false;
+    this.router.navigate(["/login"]);
     this.getIsAuthed.emit(this.isAuthed);
   }
 
@@ -60,6 +62,7 @@ export class AuthService {
         map((user: any) => {
           this.isAuthed =
             user._id === JSON.parse(localStorage.getItem("currentUser"))._id;
+          console.log("console from ");
           this.getIsAuthed.emit(this.isAuthed);
           return this.isAuthed;
         })
