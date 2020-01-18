@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: []
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -57,9 +57,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log("login func in login component");
+    console.log(this.loginForm.value);
     this.auth.login(this.loginForm.value).subscribe(
       token => {
+        console.log("login func in login component");
         this.router.navigate(["/"]);
       },
       errorResponse => {
