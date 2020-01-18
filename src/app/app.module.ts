@@ -12,10 +12,20 @@ import { Routes, RouterModule } from "@angular/router";
 import { CustomerPageComponent } from "./pages/customer-page/customer-page.component";
 import { MainPageComponent } from "./main-page/main-page.component";
 import { CategoriesBtnsComponent } from "../app/components/categories-btns/categories-btns.component";
+import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
+import { ApprovalPageComponent } from './pages/approval-page/approval-page.component';
+import { HttpService } from './http.service';
+import { DeninedPageComponent } from './pages/denined-page/denined-page.component';
 
 const routes: Routes = [
   { path: "", component: MainPageComponent },
-  { path: "user", component: CustomerPageComponent }
+  { path: "user", component: CustomerPageComponent },
+  { path: "requests", component: ApprovalPageComponent },
+  { path: "orders", component: OrdersPageComponent },
+  { path: "approved", component: ApprovalPageComponent },
+  { path: "denied", component: DeninedPageComponent }
+
+
 ];
 
 @NgModule({
@@ -25,7 +35,10 @@ const routes: Routes = [
     FooterComponent,
     CustomerPageComponent,
     MainPageComponent,
-    CategoriesBtnsComponent
+    CategoriesBtnsComponent,
+    ApprovalPageComponent,
+    OrdersPageComponent,
+    DeninedPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +47,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

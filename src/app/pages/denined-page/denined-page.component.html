@@ -8,18 +8,18 @@
         <!-- <th scope="col">Quantity </th> -->
         <th scope="col"></th>
         <th scope="col">Price</th>
- 
+  
         <th scope="col">Created_at</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let order of orders" >
+      <tr *ngFor="let order of denied" >
         <th scope="row">{{order.customerId.name}}</th>
         <td>{{order.state}}</td>
         <div>
         <td *ngFor="let list of order.items_list" >{{list.name }}</td>
         </div>        
-<div>
+  <div>
         <td *ngFor="let num of order.items_list">{{num.quantity}}</td>
       </div>
       <div></div>
