@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<hr />
 
 <img
   src="https://ae01.alicdn.com/kf/HTB19oDuXiDxK1RjSsD4q6z1DFXa2/Beibehang-Wallpaper-mural-gourmet-cartoon-pizza-fast-food-restaurant-background-wall-restaurant-kitchen-decoration-3d-wallpaper.jpg_q50.jpg"
@@ -35,9 +36,12 @@
 
     <div class="form-group">
       <label for="alterEgo">Categories</label>
-      <select class="form-control" [(ngModel)]="selectedValue">
-        <option value="none"></option>
-        <option *ngFor="let cat of categories" [ngValue]="cat">
+      <select
+        class="form-control"
+        [(ngModel)]="selectedValue"
+        name="selectedValue"
+      >
+        <option *ngFor="let cat of categories; let i = index" [ngValue]="cat">
           {{ cat.name }}
         </option>
       </select>
@@ -47,10 +51,10 @@
   </form>
 </div>
 
-<hr />
 <app-menu-group-btns></app-menu-group-btns>
-<div *ngIf="!form" class="row">
+<div *ngIf="!form" class="row" id="whole">
   <div class="row">
     <app-item *ngFor="let item of items" [item]="item"></app-item>
   </div>
 </div>
+<app-footer></app-footer>

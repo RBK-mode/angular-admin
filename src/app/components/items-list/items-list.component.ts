@@ -33,8 +33,10 @@ export class ItemsListComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
-    console.log(form.value.img);
+    console.log(this.selectedValue);
+    console.log(this.categories);
+    console.log(form.value, "this is it");
+    // console.log(form.value.img);
     this.onPost(form.value);
     form.reset();
     // this.ngOnInit()
@@ -57,9 +59,9 @@ export class ItemsListComponent implements OnInit {
         name: form.name,
         img: form.img,
         price: form.price,
-        categoryId: "5e20b48edddffe5208b575f6"
+        categoryId: form.selectedValue._id
       })
-      .subscribe(res => console.log(res));
+      .subscribe(res => console.log(res, "after Post"));
   }
 
   onGet(cb) {
