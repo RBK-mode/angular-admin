@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CategoriesListComponent } from './categories-list/categories-list.component';
-import { CategoriesItemComponent } from './categories-list/categories-item/categories-item.component';
+import { CategoriesListComponent } from './components/categories-list/categories-list.component';
+import { CategoriesItemComponent } from './components/categories-list/categories-item/categories-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
 import { ItemsListComponent } from './items-list/items-list.component';

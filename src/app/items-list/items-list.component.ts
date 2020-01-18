@@ -46,7 +46,7 @@ export class ItemsListComponent implements OnInit {
     form.reset();
   }
 
-//**************fitch items************
+//**************fitch items************************************
 // name, img, price, categoryId
   onPost(form){
       this.http.post('http://localhost:8000/api/item/',{
