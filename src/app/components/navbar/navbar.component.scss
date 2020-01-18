@@ -1,0 +1,20 @@
+.navbar {
+  background: linear-gradient(to right, #012f49, #024870);
+  padding-left: 5%;
+}
+
+.navbar-nav {
+  position: absolute;
+  right: 5%;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#notif:hover {
+  color: yellow;
+}
+#menu:hover {
+  color: white;
+}
+#logout:hover {
+  color: rgb(255, 9, 9);
+}

@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<img
+  src="https://static.wixstatic.com/media/9fdacc_09b9cbda3aba493abbe683e80393e07b.jpg"
+/>
+<div id="dashboard">
+  <!-- <app-categories-btns></app-categories-btns> -->
+  <ul style="text-align: center;">
+    <span routerLink="user" class="badge badge-pill badge-secondary">
+      {{ users.length }} Customers</span
+    >
+    <span  routerLink="orders" class="badge badge-pill badge-secondary"
+      >{{ orders.length }} Orders</span
+    >
+    <span routerLink="approved" class="badge badge-pill badge-secondary"
+      >{{ approvedOrders.length }} Approved Orders</span
+    >
+    <span routerLink='denied' class="badge badge-pill badge-secondary"
+      >{{ rejectedOrders.length }} Rejected Orders</span
+    >
+  </ul>
+</div>
+
+<app-footer></app-footer>
