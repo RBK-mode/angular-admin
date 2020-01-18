@@ -30,7 +30,7 @@ onSubmit(form: NgForm){
     var that = this
     this.onGet(function(res){
        that.catlist = res
-      console.log( that.catlist)
+      // console.log( that.catlist)
     })
   }
 
@@ -38,7 +38,7 @@ onSubmit(form: NgForm){
     var that = this
     this.onGet(function(res){
        that.catlist = res
-      console.log( that.catlist)
+      // console.log( that.catlist)
     })
   }
 
@@ -46,9 +46,9 @@ onSubmit(form: NgForm){
     this.http.post('http://localhost:8000/api/category/',{
       "name": form.name,
       "img": form.url
-    }).subscribe( res => 
-      console.log(res)
-      )
+    }).subscribe()
+      //  res =>  console.log(res)
+      // )
     }
     onGet(cb){
       this.http.get('http://localhost:8000/api/category/')
