@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<hr />
+
+<img
+  src="https://ae01.alicdn.com/kf/HTB19oDuXiDxK1RjSsD4q6z1DFXa2/Beibehang-Wallpaper-mural-gourmet-cartoon-pizza-fast-food-restaurant-background-wall-restaurant-kitchen-decoration-3d-wallpaper.jpg_q50.jpg"
+/>
+<div *ngIf="form" class="container">
+  <form id="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        required
+        ngModel
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        ngModel
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Image url</label>
+      <input type="text" class="form-control" id="price" name="price" ngModel />
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Categories</label>
+      <select
+        class="form-control"
+        [(ngModel)]="selectedValue"
+        name="selectedValue"
+      >
+        <option *ngFor="let cat of categories; let i = index" [ngValue]="cat">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<app-menu-group-btns></app-menu-group-btns>
+<div *ngIf="!form" class="row" id="whole">
+  <div class="row">
+    <app-item *ngFor="let item of items" [item]="item"></app-item>
+  </div>
+</div>
+<app-footer></app-footer>

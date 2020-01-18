@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { HttpService } from "./http.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-root",
@@ -8,7 +10,14 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "angular-admin";
 
-  constructor() {}
+  constructor(private _http: HttpService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    let signInData = localStorage.getItem("token");
+
+    if (!signInData) {
+      console.log(signInData);
+      this.router.navigate(["login"]);
+    }
+  }
 }
