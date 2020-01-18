@@ -1,7 +1,10 @@
-<div class="container">
-  <h1>Add New items</h1>
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <!-- #catForm="ngForm" -->
+<app-navbar></app-navbar>
+
+<img
+  src="https://ae01.alicdn.com/kf/HTB19oDuXiDxK1RjSsD4q6z1DFXa2/Beibehang-Wallpaper-mural-gourmet-cartoon-pizza-fast-food-restaurant-background-wall-restaurant-kitchen-decoration-3d-wallpaper.jpg_q50.jpg"
+/>
+<div *ngIf="form" class="container">
+  <form id="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-group">
       <label for="name">Name</label>
       <input
@@ -15,23 +18,29 @@
     </div>
 
     <div class="form-group">
-      <label for="alterEgo">URL</label>
-      <input type="text" class="form-control" id="img" name="img" ngModel />
+      <label for="alterEgo">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        ngModel
+      />
     </div>
 
     <div class="form-group">
-      <label for="alterEgo">price</label>
+      <label for="alterEgo">Image url</label>
       <input type="text" class="form-control" id="price" name="price" ngModel />
     </div>
+
     <div class="form-group">
-      <label for="alterEgo">categories</label>
-      <input
-        type="text"
-        class="form-control"
-        id="categoryId"
-        name="categoryId"
-        ngModel
-      />
+      <label for="alterEgo">Categories</label>
+      <select class="form-control" [(ngModel)]="selectedValue">
+        <option value="none"></option>
+        <option *ngFor="let cat of categories" [ngValue]="cat">
+          {{ cat.name }}
+        </option>
+      </select>
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
@@ -39,9 +48,9 @@
 </div>
 
 <hr />
-<div class="row">
+<app-menu-group-btns></app-menu-group-btns>
+<div *ngIf="!form" class="row">
   <div class="row">
-    <!-- <button class="btn btn-fail" (click)="onGet()">post</button> -->
     <app-item *ngFor="let item of items" [item]="item"></app-item>
   </div>
 </div>
