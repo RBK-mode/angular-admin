@@ -22,16 +22,14 @@ constructor(private http : HttpClient) {
 
 
 onSubmit(form: NgForm){
-    console.log(form.value.name);
-    console.log(form.value.url);
+    // console.log(form.value.name);
+    console.log(form.value, 'form value');
     this.onPost(form.value)
-    form.reset();
-    // this.ngOnInit()
-    var that = this
-    this.onGet(function(res){
-       that.catlist = res
-      // console.log( that.catlist)
+    this.catlist.push({
+      "name": form.value.name,
+      "img": form.value.url
     })
+    form.reset();
   }
 
   ngOnInit() {
