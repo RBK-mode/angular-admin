@@ -50,10 +50,7 @@ export class ItemsListComponent implements OnInit {
   //**************fitch items************
   // name, img, price, categoryId
   onPost(form) {
-    // let categories ;
-    // this.onGetCat(function (res){
-    //   categories = res;
-    // })
+   
     this.http
       .post("http://localhost:8000/api/item/", {
         name: form.name,

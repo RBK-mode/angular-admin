@@ -20,6 +20,5 @@ export class ItemComponent implements OnInit {
       // console.log(element._id, 'this is element')
       this.elementDeleted.emit(element);
     }
-    
   ngOnInit() {}
 }

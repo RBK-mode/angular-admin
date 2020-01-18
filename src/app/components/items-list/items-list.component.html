@@ -54,7 +54,7 @@
 <app-menu-group-btns></app-menu-group-btns>
 <div *ngIf="!form" class="row" id="whole">
   <div class="row">
-    <app-item *ngFor="let item of items" [item]="item"></app-item>
+    <app-item *ngFor="let item of items" [item]="item" (elementDeleted)="onElementDeleted($event)"></app-item>
   </div>
 </div>
 <app-footer></app-footer>

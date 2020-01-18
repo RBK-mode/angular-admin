@@ -12,7 +12,7 @@ export class DeninedPageComponent implements OnInit {
   constructor(private _HttpService: HttpService) { }
 
   ngOnInit() {
-    this._HttpService.getOrder().subscribe((data: Array<any>) => {
+    this._HttpService.getOrders().subscribe((data: Array<any>) => {
       var deniedOrders = data.filter(order => order.state === "rejected"); 
       this.denied = deniedOrders 
       console.log(this.denied)
