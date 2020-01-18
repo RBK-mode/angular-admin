@@ -5,27 +5,43 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: "root"
 })
 export class HttpService {
+  static getCustomers() {
+    throw new Error("Method not implemented.");
+  }
   constructor(private http: HttpClient) {}
 
   getUsers() {
     return this.http.get("http://localhost:8000/api/user", {
       headers: new HttpHeaders({
         auth:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTIwYTY4YTgyNWEyYzAzZjRhYmI5OWQiLCJpYXQiOjE1NzkxOTgwOTB9.yC_Gjm1h4ZT_17omBdiPba1D-_MkKW4z6A3vhb2KS6g"
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTIxZDEwMjliOWMwYzMxZTQ2ZmVmNjQiLCJpYXQiOjE1NzkyNzQ0OTl9.fP-bzaGX5VAdAzYgFqvYz_mCcV4gpbZF6eiybhcEUTQ"
       })
     });
   }
 
   getOrders() {
-    return this.http.get("http://localhost:8000/api/order", {
-      headers: new HttpHeaders({
-        auth:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTIwYTY4YTgyNWEyYzAzZjRhYmI5OWQiLCJpYXQiOjE1NzkxOTgwOTB9.yC_Gjm1h4ZT_17omBdiPba1D-_MkKW4z6A3vhb2KS6g"
-      })
-    });
+    return this.http.get("http://localhost:8000/api/order");
   }
 
   getCats() {
     return this.http.get("http://localhost:8000/api/category");
+  }
+
+  getCustomers() {
+    return this.http.get("http://localhost:8000/api/user", {
+      headers: new HttpHeaders({
+        auth:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTIxZDEwMjliOWMwYzMxZTQ2ZmVmNjQiLCJpYXQiOjE1NzkyNzQ0OTl9.fP-bzaGX5VAdAzYgFqvYz_mCcV4gpbZF6eiybhcEUTQ"
+      })
+    }); 
+  }
+
+  getOrder() {
+    return this.http.get("http://localhost:8000/api/order", {
+      headers: new HttpHeaders({
+        auth:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTIxZDEwMjliOWMwYzMxZTQ2ZmVmNjQiLCJpYXQiOjE1NzkyNzQ0OTl9.fP-bzaGX5VAdAzYgFqvYz_mCcV4gpbZF6eiybhcEUTQ"
+      })
+    }); 
   }
 }

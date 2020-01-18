@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from './../../http.service';
 
 @Component({
   selector: 'app-approval-page',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApprovalPageComponent implements OnInit {
 
-  constructor() { }
+  approved : any;
+  constructor(private _HttpService: HttpService) { }
 
   ngOnInit() {
+    this._HttpService.getOrder().subscribe((data: Array<any>) => {
+      var approvedOrders = data.filter(order => order.state === "approved"); 
+      this.approved = approvedOrders 
+      console.log(this.approved)
+     
+    });
   }
 
 }

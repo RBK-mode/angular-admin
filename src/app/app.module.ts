@@ -16,6 +16,22 @@ import { Routes, RouterModule } from "@angular/router";
 import { CustomerPageComponent } from "./pages/customer-page/customer-page.component";
 import { MainPageComponent } from "./main-page/main-page.component";
 import { CategoriesBtnsComponent } from "../app/components/categories-btns/categories-btns.component";
+
+import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
+import { ApprovalPageComponent } from './pages/approval-page/approval-page.component';
+import { HttpService } from './http.service';
+import { DeninedPageComponent } from './pages/denined-page/denined-page.component';
+
+const routes: Routes = [
+  { path: "", component: MainPageComponent },
+  { path: "user", component: CustomerPageComponent },
+  { path: "requests", component: ApprovalPageComponent },
+  { path: "orders", component: OrdersPageComponent },
+  { path: "approved", component: ApprovalPageComponent },
+  { path: "denied", component: DeninedPageComponent }
+
+
+
 import { MenuGroupBtnsComponent } from "./components/items-list/menu-group-btns/menu-group-btns.component";
 import { LoginComponent } from "./login/login.component";
 
@@ -25,6 +41,7 @@ const routes: Routes = [
   { path: "user", component: CustomerPageComponent },
   { path: "items", component: ItemsListComponent, data: { form: false } },
   { path: "addItem", component: ItemsListComponent, data: { form: true } }
+
 ];
 
 @NgModule({
@@ -39,8 +56,14 @@ const routes: Routes = [
     CustomerPageComponent,
     MainPageComponent,
     CategoriesBtnsComponent,
+
+    ApprovalPageComponent,
+    OrdersPageComponent,
+    DeninedPageComponent
+
     MenuGroupBtnsComponent,
     LoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -50,7 +73,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
