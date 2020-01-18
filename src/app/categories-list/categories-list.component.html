@@ -20,7 +20,7 @@
 <div class="row">
     <div class="row">
         <!-- <button class="btn btn-fail" (click)="onGet()">post</button> -->
-        <app-categories-item *ngFor="let catlists of catlist"  [catlists]="catlists"></app-categories-item>
+        <app-categories-item *ngFor="let catlists of catlist"  [catlists]="catlists" (elementDeleted)="onElementDeleted(element)"></app-categories-item>
      </div>
 
 </div>    

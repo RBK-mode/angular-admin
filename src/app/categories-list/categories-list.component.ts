@@ -22,7 +22,7 @@ constructor(private http : HttpClient) {
 
 
 onSubmit(form: NgForm){
-    // console.log(form.value.name);
+    // console.log(form.value);
     console.log(form.value, 'form value');
     this.onPost(form.value)
     this.catlist.push({
@@ -30,6 +30,12 @@ onSubmit(form: NgForm){
       "img": form.value.url
     })
     form.reset();
+  }
+  
+  onElementDeleted(element) {
+    console.log(element, 'delete element')
+    let index = this.catlist.indexOf(element);
+    this.catlist.splice(index, 1);
   }
 
   ngOnInit() {
