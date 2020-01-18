@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable  } from '@angular/core';
+import { Component, OnInit, Injectable, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, NgForm } from '@angular/forms';
 import { FormGroup, FormControl } from "@angular/forms";
@@ -20,6 +20,7 @@ constructor(private http : HttpClient) {
    
 }
 
+@Input() element: any;
 
 onSubmit(form: NgForm){
     // console.log(form.value);
@@ -31,10 +32,11 @@ onSubmit(form: NgForm){
     })
     form.reset();
   }
-  
-  onElementDeleted(element) {
-    console.log(element, 'delete element')
-    let index = this.catlist.indexOf(element);
+
+  onElementDeleted(event) {
+    console.log(event, 'thisis the eleemt');
+    this.onDelete(event._id)
+    let index = this.catlist.indexOf(event);
     this.catlist.splice(index, 1);
   }
 
@@ -58,6 +60,13 @@ onSubmit(form: NgForm){
       this.http.get('http://localhost:8000/api/category/')
       .subscribe( res =>
         cb(res)        
+        )
+    }
+
+    onDelete(id){
+      this.http.delete(`http://localhost:8000/api/category/${id}`)
+      .subscribe( res =>
+                console.log(res)
         )
     }
 

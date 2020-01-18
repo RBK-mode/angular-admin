@@ -8,22 +8,21 @@ import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 export class CategoriesItemComponent implements OnInit {
 
   constructor() { 
-
     // var get = ()=>{
     //   return this.catlists
     // }
-
   }
   @Input() catlists: any;
   
-  @Output() elementDeleted: EventEmitter<any> = new EventEmitter();
+  @Output() elementDeleted: EventEmitter<any> = new EventEmitter<number>();
 
   deleteElement(element) {
+    // console.log(element._id, 'this is element')
     this.elementDeleted.emit(element);
   }
 
   ngOnInit() {    
-    console.log(this.catlists)
+    // console.log(this.catlists)
   }
 
 
