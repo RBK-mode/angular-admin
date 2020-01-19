@@ -1,31 +1,31 @@
 <table class="table" style="color: white;">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Customer</th>
-        <th scope="col">State</th>
-        <th scope="col">item</th>
-      
-        <!-- <th scope="col">Quantity </th> -->
-        <th scope="col"></th>
-        <th scope="col">Price</th>
-  
-        <th scope="col">Created_at</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let order of denied" >
-        <th scope="row">{{order.customerId.name}}</th>
-        <td>{{order.state}}</td>
-        <div>
-        <td *ngFor="let list of order.items_list" >{{list.name }}</td>
-        </div>        
-  <div>
-        <td *ngFor="let num of order.items_list">{{num.quantity}}</td>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Customer</th>
+      <th scope="col">State</th>
+      <th scope="col">item</th>
+
+      <!-- <th scope="col">Quantity </th> -->
+      <th scope="col"></th>
+      <th scope="col">Price</th>
+
+      <th scope="col">Created_at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of denied">
+      <th scope="row">{{ order.customerId.name }}</th>
+      <td>{{ order.state }}</td>
+      <div>
+        <td *ngFor="let list of order.items_list">{{ list.name }}</td>
+      </div>
+      <div>
+        <td *ngFor="let num of order.items_list">{{ num.quantity }}</td>
       </div>
       <div></div>
-        <td *ngFor="let price of order.items_list">{{price.price}}</td>
-      
-        <td>{{order.createdAt}}</td>
-      </tr>
-    </tbody>
-  </table>
+      <td *ngFor="let price of order.items_list">{{ price.price }}</td>
+
+      <td>{{ order.createdAt }}</td>
+    </tr>
+  </tbody>
+</table>

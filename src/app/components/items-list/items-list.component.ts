@@ -10,7 +10,7 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./items-list.component.scss"]
 })
 export class ItemsListComponent implements OnInit {
-  items = []; // name, img, price, categoryId
+  items = [];
   categories = [];
   selectedValue = null;
   form: boolean = false;
@@ -47,10 +47,7 @@ export class ItemsListComponent implements OnInit {
     });
   }
 
-  //**************fitch items************
-  // name, img, price, categoryId
   onPost(form) {
-   
     this.http
       .post("http://localhost:8000/api/item/", {
         name: form.name,

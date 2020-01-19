@@ -7,8 +7,6 @@ import { AuthService } from "src/app/shared/auth.service";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
-  something: any;
-
   constructor(private auth: AuthService) {}
   logout() {
     this.auth.logout();
