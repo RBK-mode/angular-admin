@@ -1,78 +1,67 @@
-import { Component, OnInit, Injectable, Input} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormBuilder, NgForm } from '@angular/forms';
+import { Component, OnInit, Injectable, Input } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { FormBuilder, NgForm } from "@angular/forms";
 import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
-  selector: 'app-categories-list',
-  templateUrl: './categories-list.component.html',
-  styleUrls: ['./categories-list.component.scss']
+  selector: "app-categories-list",
+  templateUrl: "./categories-list.component.html",
+  styleUrls: ["./categories-list.component.scss"]
 })
-
-
 export class CategoriesListComponent implements OnInit {
-catlist = []
-//  {name:"shawerma", img:'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'},
-//  {name:"burger", img:'https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg'}
-// ]
-checkoutForm;
-constructor(private http : HttpClient) {
-   
-}
+  catlist = [];
+  checkoutForm;
+  constructor(private http: HttpClient) {}
 
-@Input() element: any;
+  @Input() element: any;
 
-onSubmit(form: NgForm){
+  onSubmit(form: NgForm) {
     // console.log(form.value);
-    console.log(form.value, 'form value');
-    this.onPost(form.value)
+    console.log(form.value, "form value");
+    this.onPost(form.value);
     this.catlist.push({
-      "name": form.value.name,
-      "img": form.value.url
-    })
+      name: form.value.name,
+      img: form.value.url
+    });
     form.reset();
   }
 
   onElementDeleted(event) {
-    console.log(event, 'thisis the eleemt');
-    this.onDelete(event._id)
+    console.log(event, "thisis the eleemt");
+    this.onDelete(event._id);
     let index = this.catlist.indexOf(event);
     this.catlist.splice(index, 1);
   }
 
   ngOnInit() {
-    var that = this
-    this.onGet(function(res){
-       that.catlist = res
-      // console.log( that.catlist)
-    })
+    var that = this;
+    this.onGet(function(res) {
+      that.catlist = res;
+    });
   }
 
-  onPost(form){
-    this.http.post('http://localhost:8000/api/category/',{
-      "name": form.name,
-      "img": form.url
-    }).subscribe()
-      //  res =>  console.log(res)
-      // )
-    }
-    onGet(cb){
-      this.http.get('http://localhost:8000/api/category/')
-      .subscribe( res =>
-        cb(res)        
-        )
-    }
+  onPost(form) {
+    this.http
+      .post("http://localhost:8000/api/category/", {
+        name: form.name,
+        img: form.url
+      })
+      .subscribe();
+  }
+  onGet(cb) {
+    this.http
+      .get("http://localhost:8000/api/category/")
+      .subscribe(res => cb(res));
+  }
 
-    onDelete(id){
-      this.http.delete(`http://localhost:8000/api/category/${id}`)
-      .subscribe( res =>
-                console.log(res)
-        )
-    }
-
+  onDelete(id) {
+    this.http
+      .delete(`http://localhost:8000/api/category/${id}`)
+      .subscribe(res => console.log(res));
+  }
 }
 
 @Injectable()
 export class ConfigService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 }

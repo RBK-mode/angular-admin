@@ -1,25 +1,48 @@
-<div class="container">
-    <h1>Add New Categories</h1>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm" > <!-- #catForm="ngForm" -->
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name"required ngModel><!-- formControlName="name" -->
-      </div>
-    
-      <div class="form-group">
-        <label for="alterEgo">URL</label>
-        <input type="text" class="form-control" id="alterEgo" name="url" ngModel > <!-- formControlName="url" -->
-      </div>
+<app-navbar></app-navbar>
+<hr />
 
-      <button type="submit" class="btn btn-success" >Submit</button> <!-- (click)="addItem(); catForm.reset()" -->
+<img
+  src="https://ae01.alicdn.com/kf/HTB19oDuXiDxK1RjSsD4q6z1DFXa2/Beibehang-Wallpaper-mural-gourmet-cartoon-pizza-fast-food-restaurant-background-wall-restaurant-kitchen-decoration-3d-wallpaper.jpg_q50.jpg"
+/>
+<div  *ngIf="form" class="container">
+  <h1>Categories</h1>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        required
+        ngModel
+      />
+    </div>
 
-    </form>
-</div> 
+    <div class="form-group">
+      <label for="alterEgo">URL</label>
+      <input
+        type="text"
+        class="form-control"
+        id="alterEgo"
+        name="url"
+        ngModel
+      />
+    </div>
 
-<hr>
-<div class="row">
-    <div class="row">
-        <!-- <button class="btn btn-fail" (click)="onGet()">post</button> -->
-        <app-categories-item *ngFor="let catlists of catlist"  [catlists]="catlists" (elementDeleted)="onElementDeleted($event)"></app-categories-item>
-     </div>
-</div>    
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<app-menu-group-btns></app-menu-group-btns>
+<div *ngIf="!form" class="row" id="whole">
+  <div class="row">
+    <app-categories-item
+      *ngFor="let catlists of catlist"
+      [catlists]="catlists"
+      (elementDeleted)="onElementDeleted($event)"
+    ></app-categories-item>
+  </div>
+</div>
+<app-footer></app-footer>
+

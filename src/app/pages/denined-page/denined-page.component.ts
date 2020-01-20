@@ -1,23 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from './../../http.service';
+import { Component, OnInit } from "@angular/core";
+import { HttpService } from "./../../http.service";
 
 @Component({
-  selector: 'app-denined-page',
-  templateUrl: './denined-page.component.html',
-  styleUrls: ['./denined-page.component.scss']
+  selector: "app-denined-page",
+  templateUrl: "./denined-page.component.html",
+  styleUrls: ["./denined-page.component.scss"]
 })
 export class DeninedPageComponent implements OnInit {
-
-  denied : any
-  constructor(private _HttpService: HttpService) { }
+  denied: any;
+  constructor(private _HttpService: HttpService) {}
 
   ngOnInit() {
     this._HttpService.getOrders().subscribe((data: Array<any>) => {
-      var deniedOrders = data.filter(order => order.state === "rejected"); 
-      this.denied = deniedOrders 
-      console.log(this.denied)
-     
+      var deniedOrders = data.filter(order => order.state === "rejected");
+      this.denied = deniedOrders;
+      console.log(this.denied);
     });
   }
-
 }
