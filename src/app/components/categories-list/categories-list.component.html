@@ -1,5 +1,11 @@
-<!-- <div class="container">
-  <h1>Add New Categories</h1>
+<app-navbar></app-navbar>
+<hr />
+
+<img
+  src="https://ae01.alicdn.com/kf/HTB19oDuXiDxK1RjSsD4q6z1DFXa2/Beibehang-Wallpaper-mural-gourmet-cartoon-pizza-fast-food-restaurant-background-wall-restaurant-kitchen-decoration-3d-wallpaper.jpg_q50.jpg"
+/>
+<div  *ngIf="form" class="container">
+  <h1>Categories</h1>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-group">
       <label for="name">Name</label>
@@ -28,8 +34,8 @@
   </form>
 </div>
 
-<hr />
-<div class="row">
+<app-menu-group-btns></app-menu-group-btns>
+<div *ngIf="!form" class="row" id="whole">
   <div class="row">
     <app-categories-item
       *ngFor="let catlists of catlist"
@@ -37,4 +43,6 @@
       (elementDeleted)="onElementDeleted($event)"
     ></app-categories-item>
   </div>
-</div> -->
+</div>
+<app-footer></app-footer>
+
